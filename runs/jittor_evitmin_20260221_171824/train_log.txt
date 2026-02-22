@@ -1,0 +1,4 @@
+Run dir: runs/jittor_evitmin_20260221_171824
+Model: EViTMin (Jittor)
+Epochs: 10
+============================================================

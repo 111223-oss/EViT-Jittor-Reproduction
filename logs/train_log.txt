@@ -1,0 +1,10 @@
+Epoch 001, Loss: 1.7584, Test Acc: 44.76%
+Epoch 002, Loss: 1.3785, Test Acc: 52.76%
+Epoch 003, Loss: 1.2229, Test Acc: 55.72%
+Epoch 004, Loss: 1.1403, Test Acc: 57.15%
+Epoch 005, Loss: 1.0707, Test Acc: 59.64%
+Epoch 006, Loss: 1.0137, Test Acc: 58.87%
+Epoch 007, Loss: 0.9578, Test Acc: 59.93%
+Epoch 008, Loss: 0.8968, Test Acc: 60.57%
+Epoch 009, Loss: 0.8495, Test Acc: 61.26%
+Epoch 010, Loss: 0.7819, Test Acc: 61.30%
