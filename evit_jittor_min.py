@@ -86,7 +86,7 @@ class EViTMin(nn.Module):
     简化版EViT:
     - ViT backbone
     - 用 CLS 对 patch 的注意力做 topk，生成 mask（不改 token 数量，只把不保留的 token 置0）
-    这样最稳、最不容易在 Jittor 上卡在 gather/shape 上。
+    不在 Jittor 上卡在 gather/shape 上。
     """
     def __init__(self,
                  img_size=32,
@@ -132,7 +132,7 @@ class EViTMin(nn.Module):
             x, attn = blk(x)
 
             if i >= self.prune_after:
-                # 用 numpy 做 topk（稳定、不会掉进 jt.topk/tuple 的坑）
+                # 用 numpy
                 # attn: [B,h,N,N] 取 CLS->patch 的注意力
                 a = attn.data  # numpy
                 cls_attn = a[:, :, 0, 1:]           # [B,h,64]

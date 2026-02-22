@@ -9,10 +9,10 @@ jt.flags.use_cuda = 1
 jt.set_global_seed(0)
 np.random.seed(0)
 
-# 你当前 CIFAR-10 解压后的目录（里面应有 data_batch_1~5 / test_batch）
+# 当前 CIFAR-10 解压后的目录
 DATA_DIR = os.path.expanduser("~/.cache/jittor/dataset/cifar_data/cifar-10-batches-py")
 
-# 输出目录：日志、csv、曲线图都在这里
+# 输出目录：日志、csv、曲线图
 OUT_DIR = os.path.join(os.getcwd(), "outputs_jittor")
 os.makedirs(OUT_DIR, exist_ok=True)
 
@@ -61,7 +61,7 @@ def write_text(path, text, mode="a"):
 
 def ensure_matplotlib():
     """
-    为了“不报错”：如果没装 matplotlib，就尝试 pip 安装。
+    如果没装 matplotlib，就尝试 pip 安装。
     安装失败也不抛异常，返回 False。
     """
     try:
@@ -87,7 +87,7 @@ def plot_curves(epochs, losses, accs):
 
     import matplotlib.pyplot as plt
 
-    # 美观一点：网格+更舒服的默认风格（不同 matplotlib 版本名字可能不同，失败就用默认）
+    # 美观
     try:
         plt.style.use("seaborn-v0_8-whitegrid")
     except Exception:
@@ -123,7 +123,7 @@ def plot_curves(epochs, losses, accs):
     print(" -", LOSS_PNG)
     print(" -", ACC_PNG)
 
-    # WSL/Ubuntu 有桌面环境时可尝试直接打开（失败也不会报错）
+    # WSL/Ubuntu
     try:
         subprocess.Popen(["xdg-open", LOSS_PNG], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         subprocess.Popen(["xdg-open", ACC_PNG],  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -132,7 +132,7 @@ def plot_curves(epochs, losses, accs):
 
 
 def main():
-    # 数据目录检查（不抛异常，友好退出）
+    # 数据目录检查
     if not os.path.isdir(DATA_DIR):
         print("ERROR: 找不到 DATA_DIR:", DATA_DIR)
         print("请确认目录里有 data_batch_1~5 和 test_batch")
